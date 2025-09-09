@@ -232,6 +232,17 @@
       const open = nav.classList.toggle('open');
       navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
+      const btt = document.querySelector('.back-to-top');
+      
+  if (btt) {
+    btt.addEventListener('click', (e) => {
+      e.preventDefault();
+      // scroll to absolute top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // optional: clear hash so the URL doesn't keep #top
+      history.replaceState(null, '', location.pathname + location.search);
+    });
+  }
   </script>
 </body>
 </html>
