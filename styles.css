@@ -1,0 +1,169 @@
+/* ===========================
+   ReLiANT — Site Styles
+   Theme: near-black + red
+   =========================== */
+
+/* --- Local brand font (OTF only) --- */
+@font-face{
+  font-family: "ReLiANTLocal";
+  src: url("assets/fonts/ReLiANT.otf") format("opentype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Use font on top-left R and on the homepage title word */
+.brand-font{ /* the single 'R' */
+  font-family: "ReLiANTLocal", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  text-shadow: none; letter-spacing: normal; font-weight: 400;
+}
+.hero-title .title-font{ /* the big 'ReLiANT' in the hero */
+  font-family: "ReLiANTLocal", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  text-shadow: none; letter-spacing: normal; font-weight: 400;
+}
+
+/* ----- Base / Theme ----- */
+:root{
+  --bg:#000; --bg-soft:#0a0a0a; --text:#f4f4f4; --muted:#bdbdbd; --line:#1a1a1a;
+  --red:#e50914; --red-soft:rgba(229,9,20,.18);
+  --radius:14px; --container:1120px;
+  --shadow:0 10px 30px rgba(0,0,0,.6);
+  --avatar-size:220px; /* team avatars */
+}
+
+*{box-sizing:border-box}
+html,body{
+  margin:0; padding:0; background:var(--bg); color:var(--text);
+  font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  scroll-behavior:smooth;
+}
+
+a{color:var(--text); text-decoration:none; border-bottom:1px solid transparent}
+a:hover{border-bottom-color:var(--red)}
+code,pre{font-family:ui-monospace,Menlo,Consolas,monospace}
+
+/* Screen-reader only */
+.sr-only{
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden;
+  clip:rect(0,0,0,0); border:0;
+}
+
+/* ----- Layout ----- */
+.container{max-width:var(--container); margin:0 auto; padding:0 22px}
+.section{padding:72px 0}
+.section-lined{border-top:1px solid var(--line)}
+
+/* ----- Header / Nav ----- */
+.site-header{
+  position:sticky; top:0; z-index:50;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 22px; border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(1200px 1200px at -10% -10%, var(--red-soft), transparent 60%),
+    var(--bg);
+  backdrop-filter:saturate(1.1);
+}
+.brand{display:inline-flex; align-items:center; gap:0; font-weight:700; letter-spacing:.5px}
+.brand-mark{
+  width:36px; height:36px; display:grid; place-items:center;
+  background:var(--red); color:#fff; border-radius:9px; font-weight:800; box-shadow:var(--shadow);
+}
+.site-nav{display:flex; gap:18px; align-items:center}
+.site-nav a{padding:8px 4px}
+.nav-toggle{
+  display:none; border:1px solid var(--line); background:#080808; color:var(--text);
+  padding:8px 10px; border-radius:8px;
+}
+
+/* Mobile nav */
+@media (max-width:860px){
+  .nav-toggle{display:inline-block}
+  .site-nav{
+    position:absolute; right:12px; top:58px; display:none; flex-direction:column;
+    background:#0c0c0c; border:1px solid var(--line); border-radius:10px; padding:8px; box-shadow:var(--shadow);
+  }
+  .site-nav.open{display:flex}
+}
+
+/* ----- Splash / Hero ----- */
+.splash{
+  min-height:92vh; display:grid; place-items:center;
+  padding:64px 22px 36px;
+  background:
+    radial-gradient(1100px 600px at 50% 20%, rgba(229,9,20,.12), transparent 60%),
+    linear-gradient(180deg, #040404, #000);
+  position:relative;
+}
+.splash-inner{max-width:1100px; width:100%}
+.hero-title{
+  margin:0 0 6px; font-size:clamp(40px,9vw,96px); line-height:.95; letter-spacing:1px;
+  text-shadow:0 0 18px rgba(229,9,20,.35);
+}
+.hero-kicker{display:block; color:var(--muted); font-size:clamp(12px,2.2vw,14px); letter-spacing:.2em; text-transform:uppercase}
+.hero-subtitle{margin:0 0 14px; font-size:clamp(16px,2.5vw,22px); color:#fff}
+.hero-tagline{color:var(--muted); max-width:780px; margin:0 0 18px}
+.hero-cta{display:flex; gap:12px; margin:14px 0 28px}
+
+.btn{display:inline-block; padding:10px 16px; border-radius:999px; border:1px solid var(--line); font-weight:600}
+.btn-primary{background:var(--red); color:#fff; border-color:transparent}
+.btn-ghost{background:#080808}
+
+.splash-placeholders{display:grid; gap:12px}
+.ph{
+  border:1px dashed #3a3a3a; color:#c6c6c6; background:#0b0b0b;
+  border-radius:var(--radius); display:grid; place-items:center; text-align:center; min-height:160px;
+}
+.ph-wide{min-height:240px}
+.ph-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
+
+.scroll-down{position:absolute; bottom:16px; left:50%; transform:translateX(-50%); color:var(--muted)}
+
+/* ----- About / Project ----- */
+h2{font-size:28px; margin:0 0 10px}
+h3{font-size:18px; margin:18px 0 8px}
+.key-points{margin:10px 0 0 18px}
+.key-points li{margin:6px 0}
+
+.two-col{display:grid; grid-template-columns:1.2fr .8fr; gap:28px}
+@media (max-width:920px){.two-col{grid-template-columns:1fr}}
+.tight>li{margin:6px 0}
+
+.tags{display:flex; flex-wrap:wrap; gap:8px; padding-left:0; list-style:none}
+.tags li{background:#0d0d0d; border:1px solid var(--line); border-radius:999px; padding:6px 10px}
+
+/* ----- Gallery ----- */
+.gallery{display:grid; gap:14px; grid-template-columns:repeat(4,1fr)}
+.gallery .ph{min-height:160px}
+.gallery figcaption{font-size:13px; color:var(--muted); margin-top:6px}
+@media (max-width:980px){.gallery{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.gallery{grid-template-columns:1fr}}
+
+/* ----- Team ----- */
+.team-grid{display:grid; gap:20px; grid-template-columns:repeat(4,1fr); list-style:none; padding-left:0; margin:0}
+@media (max-width:980px){.team-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:540px){.team-grid{grid-template-columns:1fr}}
+.member{text-align:center}
+.member .role{color:var(--muted); margin:4px 0 8px}
+.avatar{
+  width:var(--avatar-size); height:var(--avatar-size); aspect-ratio:1/1; object-fit:cover;
+  display:block; margin:0 auto 10px; border-radius:8px; background:#0b0b0b; border:1px solid var(--line); box-shadow:var(--shadow)
+}
+
+/* ----- Docs / Resume link ----- */
+.doc-list{margin:8px 0 0 18px}
+.note{color:var(--muted); margin-top:8px}
+.resume-link{
+  display:inline-block; font-size:14px; padding:6px 10px;
+  border:1px solid var(--line); border-radius:8px; background:#0d0d0d;
+}
+.resume-link:hover{border-color:var(--red); color:#fff}
+
+/* ----- Footer ----- */
+.site-footer{
+  border-top:1px solid var(--line); padding:30px 0;
+  background:
+    radial-gradient(1000px 800px at 105% 120%, var(--red-soft), transparent 60%),
+    var(--bg);
+}
+.site-footer .muted{color:var(--muted)}
+.back-to-top{float:right; border-bottom:1px dashed var(--red)}
