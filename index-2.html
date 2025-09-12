@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ReLiANT - Reliable Logic & NVMe Testers</title>
+  <meta name="description" content="ReLiANT (Reliable Logic & NVMe Testers) - NAU CS486C Capstone team site for ConTiNGENT." />
+
+  <!-- Preload local brand font (OTF only) -->
+  <link rel="preload" href="assets/fonts/ReLiANT.otf" as="font" type="font/otf" crossorigin>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ===== Header / Nav ===== -->
+  <header class="site-header" id="top">
+    <a class="brand" href="#home" aria-label="ReLiANT home" title="Home">
+      <span class="brand-mark brand-font" aria-hidden="true">R</span>
+    </a>
+
+    <button class="nav-toggle" aria-controls="site-nav" aria-expanded="false" id="navToggle">
+      <span class="sr-only">Toggle navigation</span>
+      ☰
+    </button>
+
+    <nav id="site-nav" class="site-nav" aria-label="Primary">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#project">Project</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#team">Team</a>
+      <a href="#docs">Docs</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- ===== Splash / Home ===== -->
+  <section class="splash" id="home" aria-label="Splash">
+    <div class="splash-inner">
+      <h1 class="hero-title">
+        <span class="hero-kicker">NAU CS486C Capstone</span>
+        <span class="title-font">ReLiANT</span>
+      </h1>
+      <p class="hero-subtitle">Reliable Logic &amp; NVMe Testers</p>
+
+      <p class="hero-tagline">
+        Building <strong>ConTiNGENT</strong> - generate executable NVMe tests from
+        <abbr title="Temporal Logic of Actions">TLA+</abbr> using TLC, and run them via a Rust executor bound to <code>nvme-cli</code>.
+      </p>
+
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#about">Learn more</a>
+        <a class="btn btn-ghost" href="#docs">View docs</a>
+      </div>
+
+      <!-- Image placeholders (drop real assets later) -->
+      <div class="splash-placeholders" aria-label="Project image placeholders">
+        <div class="ph ph-wide" role="img" aria-label="Placeholder: architecture diagram">Architecture Diagram</div>
+        <div class="ph-grid">
+          <div class="ph" role="img" aria-label="Placeholder: TLC generate view">TLC Generate</div>
+          <div class="ph" role="img" aria-label="Placeholder: Rust executor">Rust Executor</div>
+          <div class="ph" role="img" aria-label="Placeholder: nvme-cli logs">nvme-cli Logs</div>
+        </div>
+      </div>
+    </div>
+    <a class="scroll-down" href="#about" aria-label="Scroll to About">↓</a>
+  </section>
+
+  <main>
+    <!-- ===== About ===== -->
+    <section id="about" class="section">
+      <div class="container">
+        <h2>About</h2>
+        <p>
+          ReLiANT is a student engineering team focused on specification-driven testing. Our goal is to turn
+          formal <strong>TLA+</strong> models into concrete, replayable <strong>NVMe</strong> test sequences. We emphasize
+          clarity, determinism, and coverage-so findings are repeatable and actionable.
+        </p>
+        <ul class="key-points">
+          <li>TLC “generate” mode to handle non-determinism in specs</li>
+          <li>Rust executor to drive <code>nvme</code> commands against SSD DUTs</li>
+          <li>Instrumentation to map spec states between device/system states</li>
+          <li>Stretch: automatic re-test for failing sequences</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Project ===== -->
+    <section id="project" class="section section-lined">
+      <div class="container">
+        <h2>Project</h2>
+
+        <div class="two-col">
+          <div>
+            <h3>Objectives</h3>
+            <ol class="tight">
+              <li>Model target NVMe behaviors in TLA+ (PlusCal as needed).</li>
+              <li>Use TLC to generate valid execution traces.</li>
+              <li>Translate traces into Rust calls to <code>nvme-cli</code>.</li>
+              <li>Record results with sufficient metadata for replay/debug.</li>
+            </ol>
+
+            <h3>Milestones</h3>
+            <ul class="tight">
+              <li><strong>M1:</strong> Minimal TLA+ model + TLC runbook</li>
+              <li><strong>M2:</strong> Rust executor + local DUT smoke tests</li>
+              <li><strong>M3:</strong> Instrumentation &amp; reporting</li>
+              <li><strong>M4:</strong> Expanded coverage + stretch goal</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>Tech</h3>
+            <ul class="tags">
+              <li>TLA+ / TLC</li>
+              <li>PlusCal</li>
+              <li>Rust</li>
+              <li>nvme-cli</li>
+              <li>Ubuntu</li>
+            </ul>
+
+            <h3>Links</h3>
+            <ul class="tight">
+              <li><a href="https://lamport.azurewebsites.net/tla/tla.html" target="_blank" rel="noopener">TLA+ Home</a></li>
+              <li><a href="https://github.com/tlaplus" target="_blank" rel="noopener">TLA+ GitHub</a></li>
+              <li><a href="https://github.com/linux-nvme/nvme-cli" target="_blank" rel="noopener">nvme-cli</a></li>
+              <li><a href="https://nvmexpress.org/specification/nvm-express-base-specification/" target="_blank" rel="noopener">NVMe Base Spec</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Gallery ===== -->
+    <section id="gallery" class="section">
+      <div class="container">
+        <h2>Gallery</h2>
+        <p>Drop screenshots, device photos, or diagrams here as you progress.</p>
+        <div class="gallery">
+          <figure class="ph" aria-label="Placeholder image"><figcaption>Spec State Diagram</figcaption></figure>
+          <figure class="ph" aria-label="Placeholder image"><figcaption>DUT Setup</figcaption></figure>
+          <figure class="ph" aria-label="Placeholder image"><figcaption>Executor Output</figcaption></figure>
+          <figure class="ph" aria-label="Placeholder image"><figcaption>Coverage Overview</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Team ===== -->
+    <section id="team" class="section section-lined">
+      <div class="container">
+        <h2>Team</h2>
+        <ul class="team-grid" role="list">
+          <li class="member">
+            <img class="avatar" src="assets/team/xavier-graham.png" alt="Xavier Graham headshot" width="220" height="220">
+            <h3>Xavier Graham</h3>
+            <p class="role">Team Lead</p>
+            <p><a class="resume-link" href="assets/team/xavier_graham_resume.pdf" download>Download résumé (PDF)</a></p>
+          </li>
+          <li class="member">
+            <img class="avatar" src="assets/team/isaac-schwarz.png" alt="Isaac Schwarz headshot" width="220" height="220">
+            <h3>Isaac Schwarz</h3>
+            <p class="role">Something cool</p>
+            <p><a class="resume-link" href="assets/team/isaac_schwarz_resume.pdf" download>Download résumé (PDF)</a></p>
+          </li>
+          <li class="member">
+            <img class="avatar" src="assets/team/brody-england.png" alt="Brody England headshot" width="220" height="220">
+            <h3>Brody England</h3>
+            <p class="role">Something cool</p>
+            <p><a class="resume-link" href="assets/team/brody_england_resume.pdf" download>Download résumé (PDF)</a></p>
+          </li>
+          <li class="member">
+            <img class="avatar" src="assets/team/fermin-valenzuela.png" alt="Fermin Valenzuela headshot" width="220" height="220">
+            <h3>Fermin Valenzuela</h3>
+            <p class="role">Something cool</p>
+            <p><a class="resume-link" href="assets/team/fermin_valenzuela_resume.pdf" download>Download résumé (PDF)</a></p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Docs ===== -->
+    <section id="docs" class="section">
+      <div class="container">
+        <h2>Docs</h2>
+        <ul class="doc-list">
+          <li><strong>Project Spec:</strong> <a href="assets/docs/spec.pdf">docs/spec.pdf</a></li>
+        </ul>
+        <p class="note">Tip: keep filenames lowercase, no spaces; update links as you add files.</p>
+      </div>
+    </section>
+
+    <!-- ===== Contact ===== -->
+    <section id="contact" class="section section-lined">
+      <div class="container">
+        <h2>Contact</h2>
+        <div class="two-col">
+          <div>
+            <p><strong>Team Lead:</strong> Xavier Graham - <a href="mailto:xcg3@nau.edu">xcg3@nau.edu</a></p>
+            <p><strong>Industry:</strong> Chris Ortiz - <a href="mailto:chris.ortiz@sandisk.com">chris.ortiz@sandisk.com</a></p>
+            <p><strong>Industry:</strong> Rex Jackson - <a href="mailto:rex.jackson@sandisk.com">rex.jackson@sandisk.com</a></p>
+          </div>
+          <div>
+            <p><strong>Hosting:</strong> CEFNS Archival Server</p>
+            <p><a href="https://www.ceias.nau.edu/capstone/d4p/" target="_blank" rel="noopener">D4P Team Index</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> ReLiANT - Reliable Logic &amp; NVMe Testers • Northern Arizona University</p>
+      <p class="muted">This site is in active development; content and links will evolve during the term.</p>
+      <a class="back-to-top" href="#top" aria-label="Back to top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    // Year stamp
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const nav = document.getElementById('site-nav');
+    navToggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+      const btt = document.querySelector('.back-to-top');
+      
+  if (btt) {
+    btt.addEventListener('click', (e) => {
+      e.preventDefault();
+      // scroll to absolute top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // optional: clear hash so the URL doesn't keep #top
+      history.replaceState(null, '', location.pathname + location.search);
+    });
+  }
+  </script>
+</body>
+</html>
